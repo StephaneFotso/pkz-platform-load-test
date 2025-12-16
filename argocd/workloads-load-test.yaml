@@ -9,13 +9,7 @@ spec:
   source:
     repoURL: https://github.com/StephaneFotso/pkz-platform-load-test
     targetRevision: main
-    path: .
-    helm:
-      ignoreMissingValueFiles: true
-      valueFiles:
-        - products/product-001.yaml
-        - products/product-002.yaml
-        # généré dynamiquement
+    path: workloads-load-tests
 
   destination:
     server: https://kubernetes.default.svc
