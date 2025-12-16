@@ -1,19 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: workloads
+  name: workloads-load-test
+  namespace: argocd
 spec:
+  project: default
+
   source:
-    repoURL: https://github.com/org/repo.git
+    repoURL: https://github.com/StephaneFotso/pkz-platform-load-test
+    targetRevision: main
     path: .
     helm:
+      ignoreMissingValueFiles: true
       valueFiles:
         - products/product-001.yaml
         - products/product-002.yaml
         # généré dynamiquement
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+
   syncPolicy:
     automated:
       prune: true

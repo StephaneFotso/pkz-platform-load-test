@@ -1,0 +1,7 @@
+product:
+  name: product-001
+  namespace: product-001
+  replicas: 6
+
+ingress:
+  host: product-001.pkz.example.com
